@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Process Scheduling Simulator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="dark-mode">
+    <div class="container-fluid">
+        <h1 class="text-center my-4">Process Scheduling Simulator</h1>
+
+        <div class="row">
+            <!-- Left Column - Process Input -->
+            <div class="col-md-5">
+                <div class="card mb-4">
+                    <div class="card-header bg-primary text-white">
+                        <h2 class="h5 mb-0">Process Input</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <label for="numProcesses" class="form-label">Number of Processes:</label>
+                            <input type="number" class="form-control" id="numProcesses" min="1" value="5">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="timeQuantum" class="form-label">Time Quantum (RR):</label>
+                            <input type="number" class="form-control" id="timeQuantum" min="1" value="2">
+                        </div>
+
+                        <button id="generateBtn" class="btn btn-primary w-100 mb-3">
+                            <i class="bi bi-shuffle"></i> Generate Random Processes
+                        </button>
+
+                        <div class="btn-group-vertical w-100 mb-3" role="group">
+                            <button class="btn btn-algorithm btn-fcfs" data-algorithm="FCFS">
+                                Run FCFS
+                            </button>
+                            <button class="btn btn-algorithm btn-sjf" data-algorithm="SJF">
+                                Run SJF
+                            </button>
+                            <button class="btn btn-algorithm btn-priority" data-algorithm="Priority">
+                                Run Priority
+                            </button>
+                            <button class="btn btn-algorithm btn-rr" data-algorithm="RR">
+                                Run Round Robin
+                            </button>
+                        </div>
+
+                        <div class="table-responsive">
+                            <table class="table table-dark table-hover" id="processTable">
+                                <thead>
+                                    <tr>
+                                        <th>PID</th>
+                                        <th>Arrival Time</th>
+                                        <th>Burst Time</th>
+                                        <th>Priority</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="processTableBody">
+                                    <!-- Processes will be added here -->
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- New File Upload Section -->
+                        <div class="mb-3">
+                            <label for="processFile" class="form-label">Or upload input file:</label>
+                            <input class="form-control" type="file" id="processFile" accept=".txt">
+                            <button id="uploadBtn" class="btn btn-secondary w-100 mt-2">
+                                <i class="bi bi-upload"></i> Upload & Process
+                            </button>
+                            <a id="downloadBtn" class="btn btn-success w-100 mt-2 d-none" download>
+                                <i class="bi bi-download"></i> Download Output
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column - Results -->
+            <div class="col-md-7">
+                <div class="card mb-4">
+                    <div class="card-header bg-success text-white">
+                        <h2 class="h5 mb-0">Results</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive mb-4">
+                            <table class="table table-dark table-hover" id="metricsTable">
+                                <thead>
+                                    <tr>
+                                        <th>PID</th>
+                                        <th>Waiting Time</th>
+                                        <th>Turnaround Time</th>
+                                        <th>Response Time</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="metricsTableBody">
+                                    <!-- Metrics will be added here -->
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="card mb-4 bg-dark text-white">
+                            <div class="card-body" id="averagesContainer">
+                                No results yet. Run an algorithm to see metrics.
+                            </div>
+                        </div>
+
+                        <div class="card bg-dark text-white">
+                            <div class="card-body">
+                                <h3 class="h5 mb-3">Gantt Chart</h3>
+                                <div class="chart-container" style="position: relative; height: 150px;">
+                                    <canvas id="ganttChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/static/js/script.js"></script>
+</body>
+</html>
