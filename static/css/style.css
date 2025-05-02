@@ -1,0 +1,85 @@
+body.dark-mode {
+    background-color: #2d2d2d;
+    color: #ffffff;
+}
+
+.card {
+    background-color: #3d3d3d;
+    border: none;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.table-dark {
+    --bs-table-bg: #3d3d3d;
+    --bs-table-striped-bg: #454545;
+    --bs-table-hover-bg: #4a7a8c;
+}
+
+.btn-algorithm {
+    color: white;
+    border: none;
+    margin-bottom: 5px;
+    transition: all 0.3s;
+}
+
+.btn-fcfs {
+    background-color: #3a7a8c;
+}
+
+.btn-sjf {
+    background-color: #4a9ca0;
+}
+
+.btn-priority {
+    background-color: #5a9ca0;
+}
+
+.btn-rr {
+    background-color: #6a9ca0;
+}
+
+.btn-algorithm:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#ganttChart {
+    width: 100% !important;
+    height: 150px !important;
+}
+
+.averages-display {
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.loading {
+    position: relative;
+}
+
+.loading::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+}
+
+
+.chart-container {
+    position: relative;
+    height: 300px;
+    width: 100%;
+}
+
+#ganttChart {
+    width: 100% !important;
+    height: 100% !important;
+}
